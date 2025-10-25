@@ -44,23 +44,23 @@ const Settings = () => {
   const renderComponent = () => {
     switch (show) {
       case 'Profile':
-        return <Profile />;
+        return <Profile isOpen={isOpen} setIsOpen={setIsOpen} />;
       case 'Password':
-        return <Password />;
+        return <Password isOpen={isOpen} setIsOpen={setIsOpen} />;
       case 'Notifications':
-        return <Notification />;
+        return <Notification isOpen={isOpen} setIsOpen={setIsOpen} />;
       case 'Chat export':
-        return <ChatExport />;
+        return <ChatExport isOpen={isOpen} setIsOpen={setIsOpen} />;
       case 'Sessions':
-        return <Session />;
+        return <Session isOpen={isOpen} setIsOpen={setIsOpen} />;
       case 'Application':
-        return <Application />;
+        return <Application isOpen={isOpen} setIsOpen={setIsOpen} />;
       case 'Team':
-        return <Team />;
+        return <Team isOpen={isOpen} setIsOpen={setIsOpen} />;
       case 'Appearance':
-        return <Appearance />;
+        return <Appearance isOpen={isOpen} setIsOpen={setIsOpen} />;
       default:
-        return <Profile />;
+        return <Profile isOpen={isOpen} setIsOpen={setIsOpen} />;
     }
   };
 
@@ -122,21 +122,24 @@ const Settings = () => {
         <DeleteAccount open={open} setOpen={setOpen} />
 
         {/* Main content */}
-        <div className='p-6 flex-1 overflow-y-auto'>
-          <div className='absolute mt-[2px]'>
-            <div className='relative inline-block text-left lg:hidden'>
+        <div className='p-4 flex-1 overflow-y-auto'>
+          <div className=' mt-[2px] border-b mb-4 lg:pb-3'>
+            <div className='relative inline-block text-left '>
               {/* Dropdown Button */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className=' text-gray-400 me-2 rounded hover:text-gray-500'
-              >
-                {isOpen ? (
-                  <XMarkIcon className='w-6 h-6' />
-                ) : (
-                  <Bars3Icon className='w-6 h-6' />
-                )}
-              </button>
-
+              <div className='flex'>
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className='lg:hidden text-gray-400 me-2 rounded 
+                  hover:text-gray-500'
+                >
+                  {isOpen ? (
+                    <XMarkIcon className='w-6 h-6' />
+                  ) : (
+                    <Bars3Icon className='w-6 h-6' />
+                  )}
+                </button>
+                <h4 className='text-md font-normal '>{show}</h4>
+              </div>
               {/* Dropdown Menu */}
               {isOpen && (
                 <div className='absolute mt-2 w-[200px] bg-white border rounded shadow-lg z-10 p-6'>

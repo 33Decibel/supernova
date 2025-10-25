@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Language from '../../components/language';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-export default function Appearance() {
+export default function Appearance({ setIsOpen, isOpen }) {
   const [theme, setTheme] = useState('light');
   const [language, setLanguage] = useState('English / UK');
 
@@ -11,10 +12,7 @@ export default function Appearance() {
 
   return (
     <>
-      <h4 className='text-xl font-bold mb-6 border-b pb-2 ps-8 lg:ps-0'>
-        Appearance
-      </h4>
-      <div className='max-w-lg  bg-white shadow-sm space-y-6'>
+      <div className='max-w-lg  bg-white space-y-6'>
         {/* Theme Section */}
         <div>
           <h3 className='font-medium text-gray-800 mb-3'>Theme</h3>

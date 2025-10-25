@@ -6,8 +6,9 @@ import {
   DevicePhoneMobileIcon,
   // TabletIcon,
 } from '@heroicons/react/24/outline';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 
-const Session = () => {
+const Session = ({ setIsOpen, isOpen }) => {
   const [showAlert, setShowAlert] = useState(true);
 
   const devices = [
@@ -36,17 +37,6 @@ const Session = () => {
 
   return (
     <>
-      <div className='flex border-b mb-6 justify-between pb-2'>
-        <h4 className='text-xl font-bold  ps-8 lg:ps-0'>Sessions</h4>
-        <button
-          className='bg-white border border-red-500 text-red-500 
-                text-sm font-medium px-4 py-1.5 rounded-lg 
-              hover:bg-gray-50 shadow-sm'
-        >
-          Terminate All Session
-        </button>
-      </div>
-
       <div className=' rounded-2xl  border-gray-100 space-y-6'>
         {/* 🔒 Alert Box */}
         {showAlert && (
@@ -74,10 +64,10 @@ const Session = () => {
               <button className='bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm'>
                 Enable 2FA
               </button>
-              <XMarkIcon
+              {/* <XMarkIcon
                 className='w-5 h-5 text-gray-500 cursor-pointer sm:hidden'
                 onClick={() => setShowAlert(false)}
-              />
+              /> */}
             </div>
           </div>
         )}
@@ -87,7 +77,7 @@ const Session = () => {
           {devices.map((device, index) => (
             <div
               key={index}
-              className={`flex items-center justify-between    py-4 ${
+              className={`flex flex-wrap gap-2 items-center justify-between    py-4 ${
                 index !== devices.length - 1 ? 'border-b' : ''
               } border-gray-200 transition`}
             >
@@ -105,12 +95,15 @@ const Session = () => {
                   </p>
                 </div>
                 {device.active && (
-                  <span className='ml-2 px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 font-medium'>
+                  <span
+                    className='ml-2 px-2 py-0.5 text-xs rounded-full bg-green-100 min-w-[85px]
+                  text-green-700 font-medium'
+                  >
                     Active now
                   </span>
                 )}
               </div>
-              <button className='bg-white border border-gray-300 text-gray-700 text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-gray-50 shadow-sm'>
+              <button className='bg-white border  border-gray-300 text-gray-700 text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-gray-50 shadow-sm'>
                 Log out
               </button>
             </div>

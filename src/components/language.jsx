@@ -23,7 +23,7 @@ export default function Language() {
   };
 
   return (
-    <div className='relative w-48'>
+    <div className='relative '>
       <button
         onClick={() => setOpen(!open)}
         className='w-full bg-white border border-gray-300 rounded-md px-3 py-2 flex items-center justify-between shadow-sm focus:outline-none'

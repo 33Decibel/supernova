@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  InformationCircleIcon,
-  XMarkIcon,
-  ComputerDesktopIcon,
-  DevicePhoneMobileIcon,
-  // TabletIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const users = [
   {
@@ -33,16 +27,10 @@ const users = [
     avatar: 'https://cdn.worldvectorlogo.com/logos/diamond-1.svg',
   },
 ];
-export default function Application() {
+export default function Application({ setIsOpen, isOpen }) {
   const [showAlert, setShowAlert] = useState(true);
   return (
     <>
-      <div className='flex justify-between mb-6 border-b pb-2 '>
-        <h4 className='text-xl font-bold ps-8 lg:ps-0 '>Applications</h4>
-        <button className='bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm'>
-          Add More Applications
-        </button>
-      </div>
       {showAlert && (
         <div className='relative bg-purple-50 border border-purple-200 rounded-xl p-5 mb-4'>
           <div className='flex items-start  gap-3'>
@@ -72,10 +60,10 @@ export default function Application() {
             <button className='bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm'>
               Accept
             </button>
-            <XMarkIcon
+            {/* <XMarkIcon
               className='w-5 h-5 text-gray-500 cursor-pointer sm:hidden'
               onClick={() => setShowAlert(false)}
-            />
+            /> */}
           </div>
         </div>
       )}
@@ -86,15 +74,15 @@ export default function Application() {
               key={user.id}
               aria-label={user.name}
               aria-description={`${user.ram}, ${user.cpus}, ${user.disk}, ${user.price} per month`}
-              className={`group relative block 
+              className={`group gap-4 flex flex-wrap relative block 
                 ${index !== users.length - 1 ? 'border-b border-gray-300' : ''}
-                bg-white  py-4 has-checked:outline-2 
+                bg-white  pb-4 has-checked:outline-2 
               has-checked:-outline-offset-2 has-checked:outline-indigo-600 
               has-focus-visible:outline-3 has-focus-visible:-outline-offset-1 
               sm:flex sm:justify-between dark:border-white/10 dark:bg-gray-800/50 
               dark:has-checked:outline-indigo-500`}
             >
-              <div className='flex items-center space-x-3'>
+              <div className='flex items-center space-x-3 '>
                 <img
                   src={user.avatar}
                   alt={user.name}

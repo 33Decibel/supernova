@@ -66,7 +66,7 @@ export default function DeleteAccount({ open, setOpen }) {
                           <KeyIcon className='absolute left-3 top-2.5 w-4 h-4 text-gray-400' />
                           <input
                             type='password'
-                            placeholder='Placeholder'
+                            placeholder='Enter your password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className='w-full border border-gray-300 rounded-lg pl-10 pr-3 py-2 text-sm focus:ring-2 focus:ring-red-400 focus:border-red-400'

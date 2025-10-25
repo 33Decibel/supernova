@@ -1,84 +1,65 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { useState } from 'react';
+import { DocumentTextIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  CloudArrowUpIcon,
+  ArrowUpRightIcon,
+  ArrowDownTrayIcon,
+} from '@heroicons/react/24/solid';
+import { Link } from 'react-router-dom';
 
-export default function Profile() {
+export default function Profile({ isOpen, onLogout }) {
+  const [dropdownOpenFile, setDropdownOpenFile] = useState(false);
+
   return (
-    <div className='relative inline-block text-left'>
-      <div>
+    <>
+      <div className='relative w-100'>
         <button
           type='button'
-          className='inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'
-          id='menu-button'
-          aria-expanded='true'
-          aria-haspopup='true'
-          onclick='toggleDropdown()'
+          onClick={() => setDropdownOpenFile(!dropdownOpenFile)}
+          className='w-100 flex items-center gap-x-4 px-6 py-3 
+          text-sm/6 font-semibold text-gray-900'
         >
-          Drop
-          <svg
-            className='-mr-1 ml-2 h-5 w-5'
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 20 20'
-            fill='currentColor'
-            aria-hidden='true'
-          >
-            <path
-              fill-rule='evenodd'
-              d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'
-              clip-rule='evenodd'
-            />
-          </svg>
+          <img
+            alt=''
+            src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+            className='size-8 rounded-full bg-gray-100 outline -outline-offset-1 outline-black/5'
+            style={{ minWidth: '32px' }}
+          />
+          {isOpen && <span aria-hidden='true'>Tom Cook</span>}
         </button>
-      </div>
+        {dropdownOpenFile && (
+          <ul
+            className='absolute left-[15px] bottom-[50px] mt-2 w-35 rounded-xl 
+                border border-[#55555546] bg-white backdrop-blur-sm shadow-md
+                 text-[#e7bd4e]'
+          >
+            <div className='text-[#e7bd4e] flex flex-col p-1 justify-center'>
+              {/* Upload */}
+              <Link to='/settings'>
+                <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                  <CloudArrowUpIcon className='w-4 h-4 text-gray-400' />
+                  <button className='text-[12px] font-semibold text-gray-600'>
+                    Settings
+                  </button>
+                </div>
+              </Link>
 
-      <div
-        className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden'
-        role='menu'
-        aria-orientation='vertical'
-        aria-labelledby='menu-button'
-        tabindex='-1'
-        id='dropdown-menu'
-      >
-        <div className='py-1' role='none'>
-          <a
-            href='#'
-            className='text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100'
-            role='menuitem'
-            tabindex='-1'
-            id='menu-item-0'
-          >
-            Account settings
-          </a>
-          <a
-            href='#'
-            className='text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100'
-            role='menuitem'
-            tabindex='-1'
-            id='menu-item-1'
-          >
-            Support
-          </a>
-          <a
-            href='#'
-            className='text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100'
-            role='menuitem'
-            tabindex='-1'
-            id='menu-item-2'
-          >
-            License
-          </a>
-          <form method='POST' action='#' role='none'>
-            <button
-              type='submit'
-              className='text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100'
-              role='menuitem'
-              tabindex='-1'
-              id='menu-item-3'
-            >
-              Sign out
-            </button>
-          </form>
-        </div>
+              {/* Export */}
+              <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                <ArrowUpRightIcon className='w-4 h-4 text-gray-400' />
+
+                <button
+                  onClick={onLogout}
+                  className='text-[12px] font-semibold text-gray-500'
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </ul>
+        )}
       </div>
-    </div>
+    </>
   );
 }

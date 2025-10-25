@@ -1,18 +1,8 @@
-// import React from 'react';
-
-// const Notification = () => {
-//   return (
-//     <>
-//       <h4 className='text-xl font-bold mb-6 border-b pb-2 '>Notification</h4>
-//     </>
-//   );
-// };
-
-// export default Notification;
 import React, { useState } from 'react';
 import { PlusIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-const Notification = () => {
+const Notification = ({ setIsOpen, isOpen }) => {
   const [preferences, setPreferences] = useState({
     activityUpdates: true,
     accountActivity: true,
@@ -27,9 +17,7 @@ const Notification = () => {
 
   return (
     <>
-      <div className='flex justify-between border-b mb-6  pb-2 '>
-        <h4 className='text-xl font-bold ps-8 lg:ps-0'>Notifications</h4>
-
+      {/* <div className='flex justify-between border-b mb-6  pb-2 '>
         <label
           className='group relative inline-flex w-11 h-6 shrink-0 cursor-pointer rounded-full
          bg-gray-200 p-0.5 inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 
@@ -79,24 +67,23 @@ const Notification = () => {
             className='absolute inset-0 opacity-0 appearance-none cursor-pointer'
           />
         </label>
-      </div>
+      </div> */}
 
       <div className=' bg-gray-50 p-4 rounded-xl shadow-sm mb-6'>
-        {/* Email Section */}
         <div>
           <label className='block text-sm font-medium text-gray-900 mb-2'>
             Preferred email
           </label>
-          <div className='flex items-center gap-3'>
+          <div className='flex flex-wrap items-center gap-3'>
             <input
               type='email'
-              placeholder='Placeholder'
-              className='rounded-md border border-gray-300 bg-white px-3 py-2 text-sm 
+              placeholder='Enter your email address'
+              className='flex-1 rounded-md border border-gray-300 bg-white  text-sm 
             text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-none focus:ring-none'
             />
             <button className='flex flex-1 items-center text-sm font-medium text-indigo-600 hover:text-indigo-500'>
-              <PlusIcon className='w-5 h-5 mr-1' />
-              Add new email
+              <PlusIcon className='w-3 h-3 mr-1' />
+              Email
             </button>
           </div>
         </div>

@@ -20,11 +20,6 @@ import {
   Cog6ToothIcon, // Settings icon ⚙️
 } from '@heroicons/react/24/outline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import {
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-} from '@heroicons/react/24/outline';
 import Profile from './profile';
 
 const navigation = [
@@ -205,18 +200,7 @@ export default function LeftSidebar({ onLogout, sidebarOpen, setSidebarOpen }) {
                     </ul>
                   </li>
                   <li className='-mx-6 mt-auto'>
-                    <a
-                      href='#'
-                      className='flex items-center gap-x-4 px-6 py-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100'
-                    >
-                      <img
-                        alt=''
-                        src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                        className='size-8 rounded-full bg-gray-100 outline -outline-offset-1 outline-black/5'
-                      />
-                      <span className='sr-only'>Your profile</span>
-                      <span aria-hidden='true'>Tom Cook</span>
-                    </a>
+                    <Profile isOpen={isOpen} onLogout={onLogout} />
                   </li>
                 </ul>
               </nav>
@@ -362,51 +346,8 @@ export default function LeftSidebar({ onLogout, sidebarOpen, setSidebarOpen }) {
                 </ul>
               </li>
 
-              <li className='-mx-6 mt-auto' style={{ marginLeft: '-32px' }}>
-                <a
-                  id='dropdownDefaultButton'
-                  data-dropdown-toggle='dropdown'
-                  className='w-100 flex items-center gap-x-4 px-6 py-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100'
-                >
-                  <img
-                    alt=''
-                    src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                    className='size-8 rounded-full bg-gray-100 outline -outline-offset-1 outline-black/5'
-                    style={{ minWidth: '32px' }}
-                  />
-                  {isOpen && <span aria-hidden='true'>Tom Cook</span>}
-                </a>
-
-                <div
-                  id='dropdown'
-                  className='z-10 border hidden bg-white 
-                  divide-y divide-gray-100 rounded-xl 
-                  shadow-sm w-44 dark:bg-gray-700'
-                >
-                  <ul
-                    className='py-2 text-sm text-gray-700 dark:text-gray-200'
-                    aria-labelledby='dropdownDefaultButton'
-                  >
-                    <li>
-                      <a
-                        href='/settings'
-                        className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-                      >
-                        Settings
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        href='#'
-                        onClick={onLogout}
-                        className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-                      >
-                        Sign out
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+              <li className='-mx-6 mt-auto ' style={{ marginLeft: '-32px' }}>
+                <Profile isOpen={isOpen} onLogout={onLogout} />
               </li>
             </ul>
           </nav>

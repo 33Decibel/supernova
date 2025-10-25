@@ -1,9 +1,34 @@
 import LeftSidebar from './leftSidebar';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export default function Layout({ children, onLogout }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation();
+  const path = location.pathname;
+
+  let title = '';
+
+  switch (path) {
+    case '/':
+      title = 'Conversations';
+      break;
+    case '/new-chat':
+      title = 'New Chat';
+      break;
+    case '/updates-faq':
+      title = 'Updates & FAQ';
+      break;
+    case '/subscriptions':
+      title = 'Subscriptions';
+      break;
+    case '/settings':
+      title = 'Settings';
+      break;
+    default:
+      title = 'Page Not Found';
+  }
 
   return (
     <>
@@ -22,7 +47,7 @@ export default function Layout({ children, onLogout }) {
                   <Bars3Icon className='h-6 w-6' />
                 )}
               </button>
-              <p className='text-md font-semibold ms-2'>Menu</p>
+              <p className='text-md font-semibold ms-2'>{title}</p>
             </div>
             {/* <img
               alt=''

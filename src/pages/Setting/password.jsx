@@ -3,14 +3,12 @@ import {
   MapPinIcon,
   PencilSquareIcon,
 } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-export default function Password() {
+export default function Password({ setIsOpen, isOpen }) {
   return (
     <>
-      <h4 className='text-xl font-bold mb-6 border-b pb-2 ps-8 lg:ps-0'>
-        Password
-      </h4>
-      <div className='max-w-[80%] mr-auto'>
+      <div className='md:max-w-[80%] mr-auto'>
         <form action='#' method='POST' className='space-y-5'>
           {/* Name */}
           <div>

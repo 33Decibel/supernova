@@ -1,4 +1,5 @@
 import React from 'react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const users = [
   {
@@ -57,18 +58,12 @@ const users = [
   },
 ];
 
-export default function Team() {
+export default function Team({ setIsOpen, isOpen }) {
   return (
     <div className=' bg-white  rounded-xl '>
-      <div className='flex justify-between mb-6 border-b pb-2'>
-        <h4 className='text-xl font-bold ps-8 lg:ps-0'>Team</h4>
-        <button className='bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm'>
-          Invite People
-        </button>
-      </div>
       {users.map((user, index) => (
         <div key={user.id}>
-          <div className='flex items-center justify-between py-3'>
+          <div className='flex gap-2 flex-wrap items-center justify-between py-3'>
             {/* Left: Avatar + Info */}
             <div className='flex items-center space-x-3'>
               <img
@@ -83,7 +78,7 @@ export default function Team() {
             </div>
 
             {/* Right: Role + Status + Menu */}
-            <div className='flex items-end flex-col'>
+            <div className='flex sm:items-end flex-col'>
               <p className='font-medium text-gray-700'>{user.role}</p>
               <div className='flex items-center space-x-2'>
                 {user.online ? (
