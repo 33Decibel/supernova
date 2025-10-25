@@ -1,0 +1,43 @@
+.glass-card {
+  background: rgba(255, 255, 255, 0.281);
+  /* border-radius: 16px; */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.089);
+  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.3px);
+}
+
+@media screen and (min-width: 768px) {
+  .border-mob {
+    border-top-left-radius: 7px !important;
+    border-bottom-left-radius: 7px !important;
+    border-top-right-radius: 0px !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .border-mob {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+  }
+}
+
+@font-face {
+  font-family: 'Space Age';
+  src: url('./assets/fonts/space-age.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.space-font {
+  font-family: 'Space Age', sans-serif;
+}
+.swiper-pagination-horizontal {
+  position: fixed;
+  width: 55px !important;
+  bottom: 30px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
+.swiper-pagination-bullet {
+  background-color: white !important;
+}
