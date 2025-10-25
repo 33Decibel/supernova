@@ -3,7 +3,6 @@ import {
   ChatBubbleLeftRightIcon,
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
-
 const reviews = [
   {
     id: 1,
@@ -99,7 +98,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function NewChat() {
+export default function ChatHistory() {
   return (
     <>
       <div

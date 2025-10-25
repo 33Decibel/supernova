@@ -77,9 +77,9 @@ export default function App() {
           path='/new-chat'
           element={
             <PrivateRoute>
-              {/* <Layout onLogout={handleLogout}> */}
-              <NewChat />
-              {/* </Layout> */}
+              <Layout onLogout={handleLogout}>
+                <NewChat />
+              </Layout>
             </PrivateRoute>
           }
         />

@@ -10,14 +10,21 @@ import {
   PlusIcon,
 } from '@heroicons/react/24/outline';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import BgImageAi from '../../assets/wave.webp';
+import BgImageAi from '../../assets/bg-supernova.jpg';
 import Robo from '../../assets/robo.gif';
 import ChatHistory from './ChatHistory';
 import Configuration from '../../components/Configuration';
+import {
+  CloudArrowUpIcon,
+  ArrowUpRightIcon,
+  ArrowDownTrayIcon,
+} from '@heroicons/react/24/solid';
+import CairaLogo from '../../assets/CairaLogo.png';
 
 export default function Dashboard() {
   const [message, setMessage] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpenFile, setDropdownOpenFile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -75,69 +82,87 @@ export default function Dashboard() {
   return (
     <div className='flex gap-4'>
       <div
-        className='bg-white rounded-xl bg-no-repeat flex-1 flex flex-col 
-        max-h-[calc(100vh-90px)]  lg:max-h-[calc(100vh-2rem)] overflow-hidden'
+        className='bg-white rounded-xl  flex-1 
+        min-h-[calc(100vh-90px)] bg-no-repeat lg:max-h-[calc(100vh-2rem)]'
         style={{
           backgroundImage: `url(${BgImageAi})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'top',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
-        {/* Header */}
-        <div className='flex flex-col items-center text-gray-800 flex-shrink-0 px-6 pt-6'>
-          <div className='h-[120px] w-full flex items-center justify-center'>
-            <img
-              src={Robo}
-              alt='funny gif'
-              className='w-[120px] h-[120px] rounded-full'
-            />
-          </div>
-          <div className='text-center mt-6'>
-            <h1 className='text-3xl md:text-4xl font-bold space-font text-gray-900 mb-3'>
-              SuperNova
-            </h1>
-            <p className='text-gray-500 max-w-2xl mx-auto text-sm'>
-              Unlock the Potential of AI. Seamlessly integrate machine learning,
-              natural language understanding, and predictive analytics into your
-              workflows.
+        {' '}
+        <div className='h-full w-full  flex flex-col justify-center items-center  '>
+          <img src={CairaLogo} alt='Logo' className='max-h-[250px] mb-4' />
+          <h2 className='space-font text-4xl'>SUPERNOVA</h2>
+          <h2 className='space-font mb-4 text-2xl'>BY CAIRA</h2>
+          <div className='border border-[#55555546] rounded p-3 mb-3 mx-2 hidden'>
+            <p className='flex  text-sm text-white max-w-[300px] '>
+              <span className='text-lg mr-2 text-[#e7bd4e] -mt-1'>✦</span>I am
+              here, shall we begin?I am here, shall we begin?I am here, shall we
+              begin?I am here, shall we begin?
             </p>
           </div>
-        </div>
-
-        {/* Scrollable Features Grid */}
-        <div className='flex-1 overflow-y-auto px-6 my-6'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2'>
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className={`flex flex-col items-center justify-center p-4 
-              rounded-2xl shadow-sm border border-gray-150 hover:shadow-md 
-              transition-all cursor-pointer bg-[#f6f5f8]`}
+          <div className='flex '>
+            <div className='relative'>
+              <button
+                type='button'
+                onClick={() => setDropdownOpenFile(!dropdownOpenFile)}
+                className=' mr-3 border bg-indigo-700 border-indigo-800 text-white rounded-full w-14 h-14 flex 
+                items-center justify-center hover:bg-indigo-500 transition'
               >
-                <div className={`mb-3 ${feature.color} p-2 rounded-lg`}>
-                  {feature.icon}
-                </div>
-                <h3 className='text-xs font-semibold'>{feature.name}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
+                {dropdownOpenFile ? (
+                  <XMarkIcon className='w-6 h-6 ' />
+                ) : (
+                  <DocumentTextIcon className='w-6 h-6 ' />
+                )}
+              </button>
+              {dropdownOpenFile && (
+                <ul
+                  className='absolute right-[10px] -top-[130px] mt-2 w-35 rounded-xl 
+                border border-[#55555546] bg-white backdrop-blur-sm shadow-md
+                 text-[#e7bd4e]'
+                >
+                  <div className='text-[#e7bd4e] flex flex-col p-1 justify-center'>
+                    {/* Upload */}
+                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                      <CloudArrowUpIcon className='w-4 h-4 text-gray-400' />
+                      <button className='text-sm font-semibold text-gray-600'>
+                        Upload
+                      </button>
+                    </div>
 
-        <div className='flex-shrink-0 w-full px-6 mb-6'>
-          <div className='flex items-center bg-[#f6f5f8] rounded-xl px-4 py-2 border-b border-[#c8c2d3]'>
-            <PlusIcon className='w-5 h-5 text-gray-400' />
-            <div className='border-l border-gray-300 h-8 mx-4'></div>
+                    {/* Export */}
+                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                      <ArrowUpRightIcon className='w-4 h-4 text-gray-400' />
+                      <button className='text-[14px] font-semibold text-gray-500'>
+                        Export
+                      </button>
+                    </div>
 
-            <input
-              type='text'
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className='w-full border-0 bg-transparent outline-none px-3 text-gray-700'
-              placeholder='Ask me anything'
-            />
-            <div className='border-l border-gray-300 h-8 mx-4'></div>
-            <button className='text-indigo-500 hover:text-indigo-600 transition'>
-              <PaperAirplaneIcon className='w-5 h-5' />
+                    {/* Download */}
+                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                      <ArrowDownTrayIcon className='w-4 h-4 text-gray-400' />
+                      <button className='text-sm font-semibold text-gray-500'>
+                        Download
+                      </button>
+                    </div>
+                  </div>
+                </ul>
+              )}
+            </div>
+            <button
+              type='button'
+              className='border bg-indigo-700 border-indigo-800  text-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-indigo-500 transition'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 640 640'
+                width='30'
+                height='30'
+                fill='currentColor'
+              >
+                <path d='M320 64C267 64 224 107 224 160L224 288C224 341 267 384 320 384C373 384 416 341 416 288L416 160C416 107 373 64 320 64zM176 248C176 234.7 165.3 224 152 224C138.7 224 128 234.7 128 248L128 288C128 385.9 201.3 466.7 296 478.5L296 528L248 528C234.7 528 224 538.7 224 552C224 565.3 234.7 576 248 576L392 576C405.3 576 416 565.3 416 552C416 538.7 405.3 528 392 528L344 528L344 478.5C438.7 466.7 512 385.9 512 288L512 248C512 234.7 501.3 224 488 224C474.7 224 464 234.7 464 248L464 288C464 367.5 399.5 432 320 432C240.5 432 176 367.5 176 288L176 248z'></path>
+              </svg>
             </button>
           </div>
         </div>
