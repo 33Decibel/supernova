@@ -10,7 +10,9 @@ import {
   PlusIcon,
 } from '@heroicons/react/24/outline';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import BgImageAi from '../../assets/bg-supernova.jpg';
+// import BgImageAi from '../../assets/bg-supernova.jpg';
+import BgImageAi from '../../assets/wave.webp';
+
 import Robo from '../../assets/robo.gif';
 import ChatHistory from './ChatHistory';
 import Configuration from '../../components/Configuration';
@@ -86,8 +88,8 @@ export default function Dashboard() {
         min-h-[calc(100vh-90px)] bg-no-repeat lg:max-h-[calc(100vh-2rem)]'
         style={{
           backgroundImage: `url(${BgImageAi})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: 'contain',
+          backgroundPosition: 'top',
         }}
       >
         {' '}

@@ -14,11 +14,17 @@ import BgImageAi from '../../assets/wave.webp';
 import Robo from '../../assets/robo.gif';
 import ChatHistory from './ChatHistory';
 import Configuration from '../../components/Configuration';
+import {
+  CloudArrowUpIcon,
+  ArrowUpRightIcon,
+  ArrowDownTrayIcon,
+} from '@heroicons/react/24/solid';
 
 export default function Dashboard() {
   const [message, setMessage] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [dropdownOpenFile, setDropdownOpenFile] = useState(false);
 
   useEffect(() => {
     const justLoggedIn = sessionStorage.getItem('justLoggedIn');
@@ -124,8 +130,57 @@ export default function Dashboard() {
         </div>
 
         <div className='flex-shrink-0 w-full px-6 mb-6'>
-          <div className='flex items-center bg-[#f6f5f8] rounded-xl px-4 py-2 border-b border-[#c8c2d3]'>
-            <PlusIcon className='w-5 h-5 text-gray-400' />
+          <div
+            className='flex items-center bg-[#f6f5f8] rounded-xl 
+          px-4 py-2 border-b border-[#c8c2d3] '
+          >
+            <div className='relative'>
+              <button
+                type='button'
+                className='mt-2'
+                onClick={() => setDropdownOpenFile(!dropdownOpenFile)}
+              >
+                {dropdownOpenFile ? (
+                  <XMarkIcon className='w-5 h-5  text-gray-400 ' />
+                ) : (
+                  <PlusIcon className='w-5 h-5 text-gray-400' />
+                )}
+              </button>
+              {dropdownOpenFile && (
+                <ul
+                  className='absolute -left-[15px] -top-[150px] mt-2 w-35 rounded-xl 
+                border border-[#55555546] bg-white backdrop-blur-sm shadow-md
+                 text-[#e7bd4e]'
+                >
+                  <div className='text-[#e7bd4e] flex flex-col p-1 justify-center'>
+                    {/* Upload */}
+                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                      <CloudArrowUpIcon className='w-4 h-4 text-gray-400' />
+                      <button className='text-sm font-semibold text-gray-600'>
+                        Upload
+                      </button>
+                    </div>
+
+                    {/* Export */}
+                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                      <ArrowUpRightIcon className='w-4 h-4 text-gray-400' />
+                      <button className='text-[14px] font-semibold text-gray-500'>
+                        Export
+                      </button>
+                    </div>
+
+                    {/* Download */}
+                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                      <ArrowDownTrayIcon className='w-4 h-4 text-gray-400' />
+                      <button className='text-sm font-semibold text-gray-500'>
+                        Download
+                      </button>
+                    </div>
+                  </div>
+                </ul>
+              )}
+            </div>
+
             <div className='border-l border-gray-300 h-8 mx-4'></div>
 
             <input
