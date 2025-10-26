@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import LoginBg from '../../assets/loginbg/loginbg.jpg';
+// import LoginBg from '../../assets/loginbg/loginbg.jpg';
+import LoginBg from '../../assets/loginbg1.jpg';
 import ForgetPassword from './forgetPassword';
 import RequestAccess from './RequestAccess';
 import Login from './Login';
@@ -26,7 +27,7 @@ export default function Auth({ onLogin }) {
   };
   return (
     <div
-      className='flex items-center justify-center h-screen bg-cover bg-center'
+      className='flex items-center justify-center h-screen bg-cover bg-center shadow-lg'
       style={{ backgroundImage: `url(${LoginBg})` }}
     >
       <div className='bg-[#f4f4f5] p-8 rounded-xl w-[500px] mx-3'>
