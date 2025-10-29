@@ -83,7 +83,7 @@ const Configuration = ({ setIsOpen, isOpen }) => {
               </div>
             ) : (
               <div
-                className='h-[70vh] overflow-y-auto space-y-4 text-gray-600
+                className=' overflow-y-auto space-y-4 text-gray-600
                dark:text-gray-300 bg-white rounded-xl shadow dark:bg-gray-700'
               >
                 <div className='grid md:grid-cols-2 sm:grid-cols-1 '>

@@ -44,7 +44,7 @@ const features1 = [
 const ImportantNote = () => {
   return (
     <>
-      <div className='lg:pr-8 bg-indigo-600 p-6 border-mob border-r'>
+      <div className='lg:pr-8 bg-indigo-600 p-6 border-mob border-r hidden md:block'>
         <div className='lg:max-w-lg'>
           <h2 className='mb-4 text-white font-normal text-sm'>
             Important things you need to know.

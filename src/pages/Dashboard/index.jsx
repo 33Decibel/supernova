@@ -122,21 +122,19 @@ export default function Dashboard() {
                 <ul
                   className='absolute right-[10px] -top-[130px] mt-2 w-35 rounded-xl 
                 border border-[#55555546] bg-white backdrop-blur-sm shadow-md
-                 text-[#e7bd4e]'
+                 '
                 >
-                  <div className='text-[#e7bd4e] flex flex-col p-1 justify-center'>
+                  <div className='flex flex-col p-1 justify-center'>
                     {/* Upload */}
-                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                    <div className=' rounded p-2 pb-0 flex items-center gap-3 hover:bg-gray-100 transition'>
                       <CloudArrowUpIcon className='w-4 h-4 text-gray-400' />
-                      <button className='text-sm font-semibold text-gray-600'>
-                        Upload
-                      </button>
+                      <button className='text-sm font-semibold '>Upload</button>
                     </div>
 
                     {/* Export */}
-                    <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
+                    <div className=' rounded p-2 pb-0 flex items-center gap-3 hover:bg-gray-100 transition'>
                       <ArrowUpRightIcon className='w-4 h-4 text-gray-400' />
-                      <button className='text-[14px] font-semibold text-gray-500'>
+                      <button className='text-[14px] font-semibold '>
                         Export
                       </button>
                     </div>
@@ -144,7 +142,7 @@ export default function Dashboard() {
                     {/* Download */}
                     <div className=' rounded p-2 flex items-center gap-3 hover:bg-gray-100 transition'>
                       <ArrowDownTrayIcon className='w-4 h-4 text-gray-400' />
-                      <button className='text-sm font-semibold text-gray-500'>
+                      <button className='text-sm font-semibold '>
                         Download
                       </button>
                     </div>
