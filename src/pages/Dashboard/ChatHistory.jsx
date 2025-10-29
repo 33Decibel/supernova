@@ -103,7 +103,7 @@ export default function NewChat() {
   return (
     <>
       <div
-        className='max-h-[calc(100vh-2rem)] bg-gradient-to-b from-[#faf9fa] to-white
+        className='max-h-[calc(100vh-2rem)] shadow-sm bg-gradient-to-b from-[#faf9fa] to-white
       lg:border-l lg:border-gray-200 rounded-xl w-[300px] 
       flex flex-col'
       >
@@ -146,7 +146,7 @@ export default function NewChat() {
         </header>
 
         {/* Scrollable Content */}
-        <div className='flex-1 overflow-y-auto px-4 py-2'>
+        <div className='flex-1 overflow-y-auto px-4 py-2 mb-2'>
           <h2 className='text-base font-semibold text-gray-900 mb-2'>
             Conversation History
           </h2>

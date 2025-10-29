@@ -12,7 +12,7 @@ export default function Appearance({ setIsOpen, isOpen }) {
 
   return (
     <>
-      <div className='max-w-lg  bg-white space-y-6'>
+      <div className='max-w-lg  bg-white shadow-sm space-y-6'>
         {/* Theme Section */}
         <div>
           <h3 className='font-medium text-gray-800 mb-3'>Theme</h3>

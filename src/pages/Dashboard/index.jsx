@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 // import BgImageAi from '../../assets/bg-supernova.jpg';
-import BgImageAi from '../../assets/wave.webp';
+import BgImageAi from '../../assets/oldchatbg.webp';
 
 import Robo from '../../assets/robo.gif';
 import ChatHistory from './ChatHistory';
@@ -84,11 +84,11 @@ export default function Dashboard() {
   return (
     <div className='flex gap-4'>
       <div
-        className='bg-white rounded-xl  flex-1 
+        className='bg-white shadow-sm rounded-xl  flex-1 
         min-h-[calc(100vh-90px)] bg-no-repeat lg:max-h-[calc(100vh-2rem)]'
         style={{
           backgroundImage: `url(${BgImageAi})`,
-          backgroundSize: 'contain',
+          backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
       >

@@ -81,7 +81,7 @@ export default function Dashboard() {
   return (
     <div className='flex gap-4'>
       <div
-        className='bg-white rounded-xl bg-no-repeat flex-1 flex flex-col 
+        className='bg-white shadow-sm rounded-xl bg-no-repeat flex-1 flex flex-col 
         max-h-[calc(100vh-90px)]  lg:max-h-[calc(100vh-2rem)] overflow-hidden'
         style={{
           backgroundImage: `url(${BgImageAi})`,

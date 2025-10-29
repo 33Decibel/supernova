@@ -209,7 +209,7 @@ export default function LeftSidebar({ onLogout, sidebarOpen, setSidebarOpen }) {
         </div>
       </Dialog>
       <div
-        className={`hidden h-[95dvh]  xl:flex  xl:flex-col   transition-all duration-300 ${
+        className={`hidden h-[95dvh]  xl:flex  xl:flex-col shadow-sm transition-all duration-300 ${
           isOpen ? 'min-w-[265px]' : 'w-[64px]'
         }`}
       >

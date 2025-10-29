@@ -10,6 +10,8 @@ import {
   ChatBubbleLeftRightIcon,
   TrashIcon,
 } from '@heroicons/react/24/outline';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import DeleteAccount from './DeleteAccount';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Profile from './profile';
@@ -124,11 +126,9 @@ const Settings = () => {
         {/* Main content */}
         <div className='p-4 flex-1 overflow-y-auto'>
           <div className=' mt-[2px] border-b mb-4 lg:pb-3'>
-            <div className='relative inline-block text-left '>
-              {/* Dropdown Button */}
+            <Menu as='div' className='relative inline-block'>
               <div className='flex'>
-                <button
-                  onClick={() => setIsOpen(!isOpen)}
+                <MenuButton
                   className='lg:hidden text-gray-400 me-2 rounded 
                   hover:text-gray-500'
                 >
@@ -137,16 +137,24 @@ const Settings = () => {
                   ) : (
                     <Bars3Icon className='w-6 h-6' />
                   )}
-                </button>
+                </MenuButton>
                 <h4 className='text-md font-normal '>{show}</h4>
               </div>
-              {/* Dropdown Menu */}
-              {isOpen && (
-                <div className='absolute mt-2 w-[200px] bg-white border rounded shadow-lg z-10 p-6'>
+
+              <MenuItems
+                transition
+                className='absolute left-0 z-10 mt-2 w-56 origin-top-right 
+                rounded-md bg-white shadow-lg outline-1 outline-black/5 
+                transition data-closed:scale-95 data-closed:transform 
+                data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out 
+                data-leave:duration-75 data-leave:ease-in dark:bg-gray-800 dark:shadow-none 
+                dark:-outline-offset-1 dark:outline-white/10'
+              >
+                <div className='p-3 px-5'>
                   <LinkNavigation />
                 </div>
-              )}
-            </div>
+              </MenuItems>
+            </Menu>
           </div>
 
           {renderComponent()}
